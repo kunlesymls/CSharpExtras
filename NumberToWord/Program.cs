@@ -13,7 +13,7 @@ namespace NumberToWord
             string exit = "";
             do
             {
-                string ouput = string.Empty;
+                var ouput = new StringBuilder();
                 Console.WriteLine("------------------------!");
 
                 Console.WriteLine("Type any Number!");
@@ -25,11 +25,44 @@ namespace NumberToWord
                 var inputLength = input.Length;
                 if (inputLength.Equals(1))
                 {
-                    ouput = ConvertTwoDigit(input);
+                    ouput.Append(ConvertTwoDigit(input));
                 }
                 else if (inputLength.Equals(2))
                 {
-                    ouput = TwoJustDigitConverter(input);
+                    ouput.Append(TwoJustDigitConverter(input));
+                }
+                else if (inputLength.Equals(3))
+                {
+                    ouput.Append(ConvertToHundred(input));
+                }
+                else if (inputLength.Equals(4))
+                {
+                    ouput.Append(ConverttoOneThousand(input));
+                    //ouput.Append(ConvertToHundred(input));
+                }
+                else if (inputLength.Equals(5))
+                {
+                    ouput.Append(ConvertToTenThousand(input));
+                }
+                else if (inputLength.Equals(6))
+                {
+                    ouput.Append(ConvertToHundredThousand(input));
+                }
+                else if (inputLength.Equals(7))
+                {
+                    ouput.Append(ConvertToOneMillion(input));
+                }
+                else if (inputLength.Equals(8))
+                {
+                    ouput.Append(ConvertToTenMillion(input));
+                }
+                else if (inputLength.Equals(9))
+                {
+                    ouput.Append(ConvertToHundredMillion(input));
+                }
+                else if (inputLength.Equals(10))
+                {
+                    ouput.Append(ConvertToOneBillion(input));
                 }
 
 
@@ -41,6 +74,210 @@ namespace NumberToWord
                 exit = Console.ReadLine();
             } while (exit != null && exit.ToLower().Equals("y"));
 
+        }
+
+        private static string ConvertToOneBillion(string input)
+        {
+            var oneBillionSb = new StringBuilder();
+            if (input.StartsWith("0"))
+            {
+                var nineDigitOutput = RemoveZeroFromTheBegining(input);
+                oneBillionSb.Append(ConvertToHundredMillion(nineDigitOutput));
+            }
+            else
+            {
+                var firstNumber = input.Substring(0, 1);
+                oneBillionSb.Append($"{ConvertTwoDigit(firstNumber)} Billion");
+                var otherNumber = input.Substring(1, 9);
+                if (otherNumber.Equals("000000000"))
+                {
+                }
+                else
+                {
+                    oneBillionSb.Append(", ");
+                    oneBillionSb.Append(ConvertToHundredMillion(otherNumber));
+                }
+                //ouput.Append(ConvertToHundred(input));
+            }
+            return oneBillionSb.ToString();
+        }
+
+        private static string ConvertToHundredMillion(string input)
+        {
+            var hundredMillionSb = new StringBuilder();
+            if (input.StartsWith("0"))
+            {
+                var eightDigitOutput = RemoveZeroFromTheBegining(input);
+                hundredMillionSb.Append(ConvertToTenMillion(eightDigitOutput));
+            }
+            else
+            {
+                var firstNumber = input.Substring(0, 3);
+                hundredMillionSb.Append($"{ConvertToHundred(firstNumber)} Million");
+                var otherNumber = input.Substring(3, 6);
+                if (otherNumber.Equals("000000"))
+                {
+                }
+                else
+                {
+                    hundredMillionSb.Append(", ");
+                    hundredMillionSb.Append(ConvertToHundredThousand(otherNumber));
+                }
+                //ouput.Append(ConvertToHundred(input));
+            }
+            return hundredMillionSb.ToString();
+        }
+
+        private static string ConvertToTenMillion(string input)
+        {
+            var tenMillionSb = new StringBuilder();
+            if (input.StartsWith("0"))
+            {
+                var sevenDigitOutput = RemoveZeroFromTheBegining(input);
+                tenMillionSb.Append(ConvertToOneMillion(sevenDigitOutput));
+            }
+            else
+            {
+                var firstNumber = input.Substring(0, 2);
+                tenMillionSb.Append($"{TwoJustDigitConverter(firstNumber)} Million");
+                var otherNumber = input.Substring(2, 6);
+                if (otherNumber.Equals("000000"))
+                {
+                }
+                else
+                {
+                    tenMillionSb.Append(", ");
+                    tenMillionSb.Append(ConvertToHundredThousand(otherNumber));
+                }
+                //ouput.Append(ConvertToHundred(input));
+            }
+            return tenMillionSb.ToString();
+        }
+        private static string ConvertToOneMillion(string input)
+        {
+            var oneMillionSb = new StringBuilder();
+            if (input.StartsWith("0"))
+            {
+                var sixDigitOutput = RemoveZeroFromTheBegining(input);
+                oneMillionSb.Append(ConvertToHundredThousand(sixDigitOutput));
+            }
+            else
+            {
+                var firstNumber = input.Substring(0, 1);
+                oneMillionSb.Append($"{ConvertTwoDigit(firstNumber)} Million");
+                var otherNumber = input.Substring(1, 6);
+                if (otherNumber.Equals("000000"))
+                {
+                }
+                else
+                {
+                    oneMillionSb.Append(", ");
+                    oneMillionSb.Append(ConvertToHundredThousand(otherNumber));
+                }
+                //ouput.Append(ConvertToHundred(input));
+            }
+            return oneMillionSb.ToString();
+        }
+        private static string ConvertToHundredThousand(string input)
+        {
+            var hundredthousandSb = new StringBuilder();
+            if (input.StartsWith("0"))
+            {
+                var fiveDigitOutput = RemoveZeroFromTheBegining(input);
+                hundredthousandSb.Append(ConvertToTenThousand(fiveDigitOutput));
+            }
+            else
+            {
+                var firstNumber = input.Substring(0, 3);
+                hundredthousandSb.Append($"{ConvertToHundred(firstNumber)} Thousand");
+                var otherNumber = input.Substring(3, 3);
+                if (otherNumber.Equals("000"))
+                {
+                }
+                else
+                {
+                    hundredthousandSb.Append(", ");
+                    hundredthousandSb.Append(ConvertToHundred(otherNumber));
+                }
+                //ouput.Append(ConvertToHundred(input));
+            }
+            return hundredthousandSb.ToString();
+        }
+
+        private static string ConvertToTenThousand(string input)
+        {
+            var tenThousandStringBuilder = new StringBuilder();
+            if (input.StartsWith("0"))
+            {
+                var fourDigitOutput = RemoveZeroFromTheBegining(input);
+                tenThousandStringBuilder.Append(ConverttoOneThousand(fourDigitOutput));
+            }
+            else
+            {
+                var firstNumber = input.Substring(0, 2);
+                tenThousandStringBuilder.Append($"{TwoJustDigitConverter(firstNumber)} Thousand");
+                var otherNumber = input.Substring(2, 3);
+                if (otherNumber.Equals("000"))
+                {
+                }
+                else
+                {
+                    tenThousandStringBuilder.Append(", ");
+                    tenThousandStringBuilder.Append(ConvertToHundred(otherNumber));
+                }
+            }
+            return tenThousandStringBuilder.ToString();
+        }
+
+        private static string ConverttoOneThousand(string input)
+        {
+            var oneThousandStringBulider = new StringBuilder();
+            if (input.StartsWith("0"))
+            {
+                var threeDigitOutput = RemoveZeroFromTheBegining(input);
+                oneThousandStringBulider.Append(ConvertToHundred(threeDigitOutput));
+            }
+            else
+            {
+                var firstNumber = input.Substring(0, 1);
+                oneThousandStringBulider.Append($"{ConvertTwoDigit(firstNumber)} Thousand");
+                var otherNumber = input.Substring(1, 3);
+                if (otherNumber.Equals("000"))
+                {
+                }
+                else
+                {
+                    oneThousandStringBulider.Append(" and ");
+                    oneThousandStringBulider.Append(ConvertToHundred(otherNumber));
+                }
+            }
+
+            return oneThousandStringBulider.ToString();
+        }
+
+        private static string ConvertToHundred(string input)
+        {
+            var hundredStringBuilder = new StringBuilder();
+            if (input.StartsWith("0"))
+            {
+                var twoDigitOutput = RemoveZeroFromTheBegining(input);
+                hundredStringBuilder.Append(TwoJustDigitConverter(twoDigitOutput));
+            }
+            else
+            {
+                var firstNumber = input.Substring(0, 1);
+                hundredStringBuilder.Append($"{ConvertTwoDigit(firstNumber)} Hundred");
+                var otherNumber = input.Substring(1, 2);
+                if (otherNumber.Equals("00"))
+                {
+                }
+                else
+                {
+                    hundredStringBuilder.Append(" and ");
+                    hundredStringBuilder.Append(TwoJustDigitConverter(otherNumber));
+                }
+            }
+            return hundredStringBuilder.ToString();
         }
 
         private static string TwoJustDigitConverter(string twoInput)
@@ -58,9 +295,22 @@ namespace NumberToWord
                 var spiltInput = twoInput.ToCharArray();
                 for (int i = 0; i < spiltInput.Length; i++)
                 {
-                    twoDigitStringBuuilder.Append(i == 0
-                        ? $"{ConvertTwoDigit($"{spiltInput[i]}0")} - "
-                        : ConvertTwoDigit($"{spiltInput[i]}"));
+                    if (i == 0)
+                    {
+                        twoDigitStringBuuilder.Append(ConvertTwoDigit($"{spiltInput[i]}0"));
+                    }
+                    else if (spiltInput[i].Equals('0'))
+                    {
+
+                    }
+                    else
+                    {
+                        twoDigitStringBuuilder.Append(" - ");
+                        twoDigitStringBuuilder.Append(ConvertTwoDigit($"{spiltInput[i]}"));
+                    }
+                    //twoDigitStringBuuilder.Append(i == 0
+                    //    ? $"{ConvertTwoDigit($"{spiltInput[i]}0")} - "
+                    //    : ConvertTwoDigit($"{spiltInput[i]}"));
                 }
             }
             else
