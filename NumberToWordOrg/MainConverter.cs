@@ -1,8 +1,8 @@
 ﻿using System.Text;
 
-namespace NumberToWord
+namespace NumberToWordOrg
 {
-    static class MainConverter
+    public static class MainConverter
     {
         public static string GetnumberConverter(string input)
         {
@@ -57,44 +57,44 @@ namespace NumberToWord
             var inputLength = input.Length;
             if (inputLength.Equals(1))
             {
-                convertSb.Append((string)ConvertTwoDigit(input));
+                convertSb.Append(ConvertTwoDigit(input));
             }
             else if (inputLength.Equals(2))
             {
-                convertSb.Append((string)TwoJustDigitConverter(input));
+                convertSb.Append(TwoJustDigitConverter(input));
             }
             else if (inputLength.Equals(3))
             {
-                convertSb.Append((string)ConvertToHundred(input));
+                convertSb.Append(ConvertToHundred(input));
             }
             else if (inputLength.Equals(4))
             {
-                convertSb.Append((string)ConverttoOneThousand(input));
+                convertSb.Append(ConverttoOneThousand(input));
                 //ouput.Append(ConvertToHundred(input));
             }
             else if (inputLength.Equals(5))
             {
-                convertSb.Append((string)ConvertToTenThousand(input));
+                convertSb.Append(ConvertToTenThousand(input));
             }
             else if (inputLength.Equals(6))
             {
-                convertSb.Append((string)ConvertToHundredThousand(input));
+                convertSb.Append(ConvertToHundredThousand(input));
             }
             else if (inputLength.Equals(7))
             {
-                convertSb.Append((string)ConvertToOneMillion(input));
+                convertSb.Append(ConvertToOneMillion(input));
             }
             else if (inputLength.Equals(8))
             {
-                convertSb.Append((string)ConvertToTenMillion(input));
+                convertSb.Append(ConvertToTenMillion(input));
             }
             else if (inputLength.Equals(9))
             {
-                convertSb.Append((string)ConvertToHundredMillion(input));
+                convertSb.Append(ConvertToHundredMillion(input));
             }
             else if (inputLength.Equals(10))
             {
-                convertSb.Append((string)ConvertToOneBillion(input));
+                convertSb.Append(ConvertToOneBillion(input));
             }
             return convertSb.ToString();
         }
@@ -105,7 +105,7 @@ namespace NumberToWord
             if (input.StartsWith("0"))
             {
                 var nineDigitOutput = RemoveZeroFromTheBegining(input);
-                oneBillionSb.Append((string)ConvertToHundredMillion(nineDigitOutput));
+                oneBillionSb.Append(ConvertToHundredMillion(nineDigitOutput));
             }
             else
             {
@@ -118,7 +118,7 @@ namespace NumberToWord
                 else
                 {
                     oneBillionSb.Append(", ");
-                    oneBillionSb.Append((string)ConvertToHundredMillion(otherNumber));
+                    oneBillionSb.Append(ConvertToHundredMillion(otherNumber));
                 }
                 //ouput.Append(ConvertToHundred(input));
             }
@@ -131,7 +131,7 @@ namespace NumberToWord
             if (input.StartsWith("0"))
             {
                 var eightDigitOutput = RemoveZeroFromTheBegining(input);
-                hundredMillionSb.Append((string)ConvertToTenMillion(eightDigitOutput));
+                hundredMillionSb.Append(ConvertToTenMillion(eightDigitOutput));
             }
             else
             {
@@ -144,7 +144,7 @@ namespace NumberToWord
                 else
                 {
                     hundredMillionSb.Append(", ");
-                    hundredMillionSb.Append((string)ConvertToHundredThousand(otherNumber));
+                    hundredMillionSb.Append(ConvertToHundredThousand(otherNumber));
                 }
                 //ouput.Append(ConvertToHundred(input));
             }
@@ -157,7 +157,7 @@ namespace NumberToWord
             if (input.StartsWith("0"))
             {
                 var sevenDigitOutput = RemoveZeroFromTheBegining(input);
-                tenMillionSb.Append((string)ConvertToOneMillion(sevenDigitOutput));
+                tenMillionSb.Append(ConvertToOneMillion(sevenDigitOutput));
             }
             else
             {
@@ -170,7 +170,7 @@ namespace NumberToWord
                 else
                 {
                     tenMillionSb.Append(", ");
-                    tenMillionSb.Append((string)ConvertToHundredThousand(otherNumber));
+                    tenMillionSb.Append(ConvertToHundredThousand(otherNumber));
                 }
                 //ouput.Append(ConvertToHundred(input));
             }
@@ -183,7 +183,7 @@ namespace NumberToWord
             if (input.StartsWith("0"))
             {
                 var sixDigitOutput = RemoveZeroFromTheBegining(input);
-                oneMillionSb.Append((string)ConvertToHundredThousand(sixDigitOutput));
+                oneMillionSb.Append(ConvertToHundredThousand(sixDigitOutput));
             }
             else
             {
@@ -196,7 +196,7 @@ namespace NumberToWord
                 else
                 {
                     oneMillionSb.Append(", ");
-                    oneMillionSb.Append((string)ConvertToHundredThousand(otherNumber));
+                    oneMillionSb.Append(ConvertToHundredThousand(otherNumber));
                 }
                 //ouput.Append(ConvertToHundred(input));
             }
@@ -209,7 +209,7 @@ namespace NumberToWord
             if (input.StartsWith("0"))
             {
                 var fiveDigitOutput = RemoveZeroFromTheBegining(input);
-                hundredthousandSb.Append((string)ConvertToTenThousand(fiveDigitOutput));
+                hundredthousandSb.Append(ConvertToTenThousand(fiveDigitOutput));
             }
             else
             {
@@ -222,7 +222,7 @@ namespace NumberToWord
                 else
                 {
                     hundredthousandSb.Append(", ");
-                    hundredthousandSb.Append((string)ConvertToHundred(otherNumber));
+                    hundredthousandSb.Append(ConvertToHundred(otherNumber));
                 }
                 //ouput.Append(ConvertToHundred(input));
             }
@@ -235,7 +235,7 @@ namespace NumberToWord
             if (input.StartsWith("0"))
             {
                 var fourDigitOutput = RemoveZeroFromTheBegining(input);
-                tenThousandStringBuilder.Append((string)ConverttoOneThousand(fourDigitOutput));
+                tenThousandStringBuilder.Append(ConverttoOneThousand(fourDigitOutput));
             }
             else
             {
@@ -248,7 +248,7 @@ namespace NumberToWord
                 else
                 {
                     tenThousandStringBuilder.Append(", ");
-                    tenThousandStringBuilder.Append((string)ConvertToHundred(otherNumber));
+                    tenThousandStringBuilder.Append(ConvertToHundred(otherNumber));
                 }
             }
             return tenThousandStringBuilder.ToString();
@@ -260,7 +260,7 @@ namespace NumberToWord
             if (input.StartsWith("0"))
             {
                 var threeDigitOutput = RemoveZeroFromTheBegining(input);
-                oneThousandStringBulider.Append((string)ConvertToHundred(threeDigitOutput));
+                oneThousandStringBulider.Append(ConvertToHundred(threeDigitOutput));
             }
             else
             {
@@ -273,7 +273,7 @@ namespace NumberToWord
                 else
                 {
                     oneThousandStringBulider.Append(" and ");
-                    oneThousandStringBulider.Append((string)ConvertToHundred(otherNumber));
+                    oneThousandStringBulider.Append(ConvertToHundred(otherNumber));
                 }
             }
 
@@ -286,7 +286,7 @@ namespace NumberToWord
             if (input.StartsWith("0"))
             {
                 var twoDigitOutput = RemoveZeroFromTheBegining(input);
-                hundredStringBuilder.Append((string)TwoJustDigitConverter(twoDigitOutput));
+                hundredStringBuilder.Append(TwoJustDigitConverter(twoDigitOutput));
             }
             else
             {
@@ -299,7 +299,7 @@ namespace NumberToWord
                 else
                 {
                     hundredStringBuilder.Append(" and ");
-                    hundredStringBuilder.Append((string)TwoJustDigitConverter(otherNumber));
+                    hundredStringBuilder.Append(TwoJustDigitConverter(otherNumber));
                 }
             }
             return hundredStringBuilder.ToString();
@@ -313,7 +313,7 @@ namespace NumberToWord
             if (twoInput.StartsWith("0"))
             {
                 twoDigitOutput = RemoveZeroFromTheBegining(twoInput);
-                twoDigitStringBuuilder.Append((string)ConvertTwoDigit(twoDigitOutput));
+                twoDigitStringBuuilder.Append(ConvertTwoDigit(twoDigitOutput));
             }
             else if (twoInput.Substring(0, 1) != ("1"))
             {
@@ -322,7 +322,7 @@ namespace NumberToWord
                 {
                     if (i == 0)
                     {
-                        twoDigitStringBuuilder.Append((string)ConvertTwoDigit($"{spiltInput[i]}0"));
+                        twoDigitStringBuuilder.Append(ConvertTwoDigit($"{spiltInput[i]}0"));
                     }
                     else if (spiltInput[i].Equals('0'))
                     {
@@ -331,7 +331,7 @@ namespace NumberToWord
                     else
                     {
                         twoDigitStringBuuilder.Append(" - ");
-                        twoDigitStringBuuilder.Append((string)ConvertTwoDigit($"{spiltInput[i]}"));
+                        twoDigitStringBuuilder.Append(ConvertTwoDigit($"{spiltInput[i]}"));
                     }
                     //twoDigitStringBuuilder.Append(i == 0
                     //    ? $"{ConvertTwoDigit($"{spiltInput[i]}0")} - "
@@ -340,7 +340,7 @@ namespace NumberToWord
             }
             else
             {
-                twoDigitStringBuuilder.Append((string)ConvertTwoDigit(twoInput));
+                twoDigitStringBuuilder.Append(ConvertTwoDigit(twoInput));
             }
 
             return twoDigitStringBuuilder.ToString();
