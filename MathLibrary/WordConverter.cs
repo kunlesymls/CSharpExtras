@@ -12,7 +12,7 @@ namespace MathLibrary
 
             if (newInput.Contains("."))
             {
-                numberSb.Append(CheckForNegativity(newInput));
+                //numberSb.Append(CheckForNegativity(newInput));
                 var splitInput = newInput.Split('.');
                 numberSb.Append(ConvertInput(splitInput[0]));
                 numberSb.Append(" (dot) ");
@@ -25,29 +25,27 @@ namespace MathLibrary
             }
             else
             {
-                numberSb.Append(CheckForNegativity(newInput));
+                //numberSb.Append(CheckForNegativity(newInput));
                 numberSb.Append(ConvertInput(newInput));
             }
             return numberSb.ToString();
         }
+
         private static string CheckForNegativity(string input)
         {
-            var negativeSb = new StringBuilder();
             if (input.StartsWith("-"))
             {
-                negativeSb.Append("Minus ");
+                return "Minus ";
             }
-            return negativeSb.ToString();
+            return "";
         }
 
         private static string RemoveNegativity(string input)
         {
             if (input.StartsWith("-"))
             {
-                var removedInput = input.Remove(0, 1);
-                return removedInput;
+                return input.Remove(0, 1);
             }
-
             return input;
         }
 
@@ -55,13 +53,14 @@ namespace MathLibrary
         {
             var convertSb = new StringBuilder();
             var inputLength = input.Length;
+            var myChar = input[2];
             if (inputLength.Equals(1))
             {
                 convertSb.Append(ConvertTwoDigit(input));
             }
             else if (inputLength.Equals(2))
             {
-                convertSb.Append(TwoJustDigitConverter(input));
+                convertSb.Append(JustTwoDigitConverter(input));
             }
             else if (inputLength.Equals(3))
             {
@@ -162,7 +161,7 @@ namespace MathLibrary
             else
             {
                 var firstNumber = input.Substring(0, 2);
-                tenMillionSb.Append($"{TwoJustDigitConverter(firstNumber)} Million");
+                tenMillionSb.Append($"{JustTwoDigitConverter(firstNumber)} Million");
                 var otherNumber = input.Substring(2, 6);
                 if (otherNumber.Equals("000000"))
                 {
@@ -240,7 +239,7 @@ namespace MathLibrary
             else
             {
                 var firstNumber = input.Substring(0, 2);
-                tenThousandStringBuilder.Append($"{TwoJustDigitConverter(firstNumber)} Thousand");
+                tenThousandStringBuilder.Append($"{JustTwoDigitConverter(firstNumber)} Thousand");
                 var otherNumber = input.Substring(2, 3);
                 if (otherNumber.Equals("000"))
                 {
@@ -286,7 +285,7 @@ namespace MathLibrary
             if (input.StartsWith("0"))
             {
                 var twoDigitOutput = RemoveZeroFromTheBegining(input);
-                hundredStringBuilder.Append(TwoJustDigitConverter(twoDigitOutput));
+                hundredStringBuilder.Append(JustTwoDigitConverter(twoDigitOutput));
             }
             else
             {
@@ -299,39 +298,39 @@ namespace MathLibrary
                 else
                 {
                     hundredStringBuilder.Append(" and ");
-                    hundredStringBuilder.Append(TwoJustDigitConverter(otherNumber));
+                    hundredStringBuilder.Append(JustTwoDigitConverter(otherNumber));
                 }
             }
             return hundredStringBuilder.ToString();
         }
 
-        private static string TwoJustDigitConverter(string twoInput)
+        private static string JustTwoDigitConverter(string twoInput)
         {
-            var twoDigitStringBuuilder = new StringBuilder();
-            string twoDigitOutput = string.Empty;
+            var twoDigitSb = new StringBuilder();
+            //string twoDigitOutput = string.Empty;
 
             if (twoInput.StartsWith("0"))
             {
-                twoDigitOutput = RemoveZeroFromTheBegining(twoInput);
-                twoDigitStringBuuilder.Append(ConvertTwoDigit(twoDigitOutput));
+                var twoDigitOutput = RemoveZeroFromTheBegining(twoInput);
+                twoDigitSb.Append(ConvertTwoDigit(twoDigitOutput));
             }
-            else if (twoInput.Substring(0, 1) != ("1"))
+            else if (twoInput.Substring(0, 1) != "1")
             {
                 var spiltInput = twoInput.ToCharArray();
                 for (int i = 0; i < spiltInput.Length; i++)
                 {
                     if (i == 0)
                     {
-                        twoDigitStringBuuilder.Append(ConvertTwoDigit($"{spiltInput[i]}0"));
+                        twoDigitSb.Append(ConvertTwoDigit($"{spiltInput[i]}0"));
                     }
                     else if (spiltInput[i].Equals('0'))
                     {
-
+                        ;
                     }
                     else
                     {
-                        twoDigitStringBuuilder.Append(" - ");
-                        twoDigitStringBuuilder.Append(ConvertTwoDigit($"{spiltInput[i]}"));
+                        twoDigitSb.Append(" - ");
+                        twoDigitSb.Append(ConvertTwoDigit($"{spiltInput[i]}"));
                     }
                     //twoDigitStringBuuilder.Append(i == 0
                     //    ? $"{ConvertTwoDigit($"{spiltInput[i]}0")} - "
@@ -340,17 +339,13 @@ namespace MathLibrary
             }
             else
             {
-                twoDigitStringBuuilder.Append(ConvertTwoDigit(twoInput));
+                twoDigitSb.Append(ConvertTwoDigit(twoInput));
             }
 
-            return twoDigitStringBuuilder.ToString();
+            return twoDigitSb.ToString();
         }
 
-        private static string RemoveZeroFromTheBegining(string input)
-        {
-            var removedInput = input.Remove(0, 1);
-            return removedInput;
-        }
+        private static string RemoveZeroFromTheBegining(string input) => input.Remove(0, 1);
 
         private static string ConvertTwoDigit(string num)
         {
@@ -358,65 +353,91 @@ namespace MathLibrary
             {
                 case "0":
                     return "Zero";
+
                 case "1":
                     return "One";
+
                 case "2":
                     return "Two";
+
                 case "3":
                     return "Three";
+
                 case "4":
                     return "Four";
+
                 case "5":
                     return "Five";
+
                 case "6":
                     return "Six";
+
                 case "7":
                     return "Seven";
+
                 case "8":
                     return "Eight";
+
                 case "9":
                     return "Nine";
+
                 case "10":
                     return "Ten";
+
                 case "11":
                     return "Eleven";
+
                 case "12":
                     return "Twelve";
+
                 case "13":
                     return "Thirteen";
+
                 case "14":
                     return "Fourteen";
+
                 case "15":
                     return "Fifteen";
+
                 case "16":
                     return "Sixteen";
+
                 case "17":
                     return "Seventeen";
+
                 case "18":
                     return "Eighteen";
+
                 case "19":
                     return "Nineteen";
+
                 case "20":
                     return "Twenty";
+
                 case "30":
                     return "Thirty";
+
                 case "40":
                     return "Forty";
+
                 case "50":
                     return "Fifty";
+
                 case "60":
                     return "Sixty";
+
                 case "70":
                     return "Seventy";
+
                 case "80":
                     return "Eighty";
+
                 case "90":
                     return "Ninety";
 
                 default:
                     return "Not a two digit number";
             }
-
         }
     }
 }

@@ -19,7 +19,7 @@
             return 2 * (_lenght + _breadth);
         }
 
-        public double GetNothing()
+        public double GetNothing(string jfj)
         {
             return 0;
         }

@@ -49,6 +49,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CSharpFundamentals\CSharpFundamentals.csproj">
+      <Project>{C69DFCB8-D973-460A-A894-46528E567AC1}</Project>
+      <Name>CSharpFundamentals</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MathLibrary\MathLibrary.csproj">
       <Project>{9E368004-96F3-4164-9911-334871E42261}</Project>
       <Name>MathLibrary</Name>

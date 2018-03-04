@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntryApplicaction", "EntryA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathLibrary", "MathLibrary\MathLibrary.csproj", "{9E368004-96F3-4164-9911-334871E42261}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpFundamentals", "CSharpFundamentals\CSharpFundamentals.csproj", "{C69DFCB8-D973-460A-A894-46528E567AC1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9E368004-96F3-4164-9911-334871E42261}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E368004-96F3-4164-9911-334871E42261}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E368004-96F3-4164-9911-334871E42261}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C69DFCB8-D973-460A-A894-46528E567AC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C69DFCB8-D973-460A-A894-46528E567AC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C69DFCB8-D973-460A-A894-46528E567AC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C69DFCB8-D973-460A-A894-46528E567AC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
