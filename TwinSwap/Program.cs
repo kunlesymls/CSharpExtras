@@ -15,8 +15,10 @@ namespace TwinSwap
             {
                 string getStringA = stringArrayA[i];
                 string getStringB = stringArrayB[i];
+
                 var evenResult = PerformEvenOperation(getStringA);
                 var oldResult = PerformOldOperation(evenResult);
+
                 if (oldResult.Equals(getStringB))
                 {
                     resultArray[i] = "Yes";
@@ -30,7 +32,6 @@ namespace TwinSwap
             {
                 Console.WriteLine(item);
             }
-
             Console.ReadLine();
         }
 
@@ -40,15 +41,12 @@ namespace TwinSwap
             char[] inputArray = input.ToCharArray();
             int swappedNo = 0;
 
-
-
             for (int i = 0; i < inputArray.Length; i++)
             {
                 if (i == 0)
                 {
                     swappedNo = i + 2;
                     builder.Append(inputArray[swappedNo].ToString());
-
                 }
 
                 else if (i >= 2 && i % 2 == 0)
@@ -68,12 +66,8 @@ namespace TwinSwap
                 else
                 {
                     builder.Append(inputArray[i].ToString());
-
                 }
-
-
             }
-
             return builder.ToString();
         }
         static string PerformOldOperation(string input)
@@ -82,15 +76,12 @@ namespace TwinSwap
             char[] inputArray = input.ToCharArray();
             int swappedNo = 0;
 
-
-
             for (int i = 0; i < inputArray.Length; i++)
             {
                 if (i == 1)
                 {
                     swappedNo = i + 2;
                     builder.Append(inputArray[swappedNo].ToString());
-
                 }
 
                 else if (i >= 2 && i % 2 == 1)
@@ -105,16 +96,12 @@ namespace TwinSwap
                         swappedNo = i + 2;
                         builder.Append(inputArray[swappedNo].ToString());
                     }
-
                 }
                 else
                 {
                     builder.Append(inputArray[i].ToString());
-
                 }
-
             }
-
             return builder.ToString();
         }
     }
