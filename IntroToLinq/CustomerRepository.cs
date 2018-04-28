@@ -48,5 +48,21 @@ namespace IntroToLinq
             };
             return customers;
         }
+
+        public IEnumerable<Customer> SortByLastName(List<Customer> customerList)
+        {
+            return customerList
+                    .OrderBy(x => x.LastName)
+                    .ThenBy(t => t.FirstName);
+        }
+
+        public IEnumerable<Customer> SortByLastNameInReverse(List<Customer> customerList)
+        {
+            //return customerList
+            //        .OrderByDescending(x => x.LastName)
+            //        .ThenByDescending(t => t.FirstName);
+
+            return SortByLastName(customerList).Reverse();
+        }
     }
 }

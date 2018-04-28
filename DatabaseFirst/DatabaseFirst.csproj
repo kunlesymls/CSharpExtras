@@ -53,8 +53,13 @@
     <Compile Include="Migrations\201804231310468_InitialCreate.Designer.cs">
       <DependentUpon>201804231310468_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804281956326_TodoTable.cs" />
+    <Compile Include="Migrations\201804281956326_TodoTable.Designer.cs">
+      <DependentUpon>201804281956326_TodoTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\Todo.cs" />
     <Compile Include="MyDbContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,6 +71,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201804231310468_InitialCreate.resx">
       <DependentUpon>201804231310468_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804281956326_TodoTable.resx">
+      <DependentUpon>201804281956326_TodoTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
