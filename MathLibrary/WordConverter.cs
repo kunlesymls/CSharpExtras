@@ -53,7 +53,6 @@ namespace MathLibrary
         {
             var convertSb = new StringBuilder();
             var inputLength = input.Length;
-            var myChar = input[2];
             if (inputLength.Equals(1))
             {
                 convertSb.Append(ConvertTwoDigit(input));
@@ -95,6 +94,7 @@ namespace MathLibrary
             {
                 convertSb.Append(ConvertToOneBillion(input));
             }
+            convertSb.Append(" Naira Only");
             return convertSb.ToString();
         }
 

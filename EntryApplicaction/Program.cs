@@ -1,5 +1,7 @@
 ﻿using CSharpFundamentals;
+using MathLibrary;
 using System;
+using System.Text;
 
 namespace EntryApplicaction
 {
@@ -9,37 +11,37 @@ namespace EntryApplicaction
         {
             #region Exercise one of Chapter One
 
-            Console.WriteLine("Please type the sequence length");
-            int sequenceLenght = Convert.ToInt16(Console.ReadLine());
+            //Console.WriteLine("Please type the sequence length");
+            //int sequenceLenght = Convert.ToInt16(Console.ReadLine());
 
-            Console.WriteLine("Please type the first number of the sequence");
-            int startingNumber = Convert.ToInt16(Console.ReadLine());
+            //Console.WriteLine("Please type the first number of the sequence");
+            //int startingNumber = Convert.ToInt16(Console.ReadLine());
 
-            Console.WriteLine(ChapterOne.PositiveNegativeSequence(sequenceLenght, startingNumber));
-            Console.WriteLine(ChapterOne.PositiveNegativeSequence(sequenceLenght));
+            //Console.WriteLine(ChapterOne.PositiveNegativeSequence(sequenceLenght, startingNumber));
+            //Console.WriteLine(ChapterOne.PositiveNegativeSequence(sequenceLenght));
 
             #endregion Exercise one of Chapter One
 
             #region Number to Word
 
-            //Console.WriteLine("Number to Word Converter!");
+            Console.WriteLine("Number to Word Converter!");
 
-            //string exit = "";
-            //do
-            //{
-            //    var ouput = new StringBuilder();
-            //    Console.WriteLine("------------------------!");
+            string exit = "";
+            do
+            {
+                var ouput = new StringBuilder();
+                Console.WriteLine("------------------------!");
 
-            // Console.WriteLine("Type any Number!"); string input = Console.ReadLine();
+                Console.WriteLine("Type any Number!"); string input = Console.ReadLine();
 
-            // ouput.Append(WordConverter.GetnumberConverter(input));
+                ouput.Append(WordConverter.GetnumberConverter(input));
 
-            // Console.WriteLine("------------------------!"); Console.WriteLine($"Generated output
-            // is \" {ouput} \""); Console.WriteLine("------------------------!");
+                Console.WriteLine("------------------------!"); Console.WriteLine($"Generated output is \" {ouput} \"");
+                Console.WriteLine("------------------------!");
 
-            //    Console.WriteLine("Please type y to continue or n to quit");
-            //    exit = Console.ReadLine();
-            //} while (exit != null && exit.ToLower().Equals("y"));
+                Console.WriteLine("Please type y to continue or n to quit");
+                exit = Console.ReadLine();
+            } while (exit != null && exit.ToLower().Equals("y"));
 
             #endregion Number to Word
 
