@@ -24,24 +24,24 @@ namespace EntryApplicaction
 
             #region Number to Word
 
-            Console.WriteLine("Number to Word Converter!");
+            //Console.WriteLine("Number to Word Converter!");
 
-            string exit = "";
-            do
-            {
-                var ouput = new StringBuilder();
-                Console.WriteLine("------------------------!");
+            //string exit = "";
+            //do
+            //{
+            //    var ouput = new StringBuilder();
+            //    Console.WriteLine("------------------------!");
 
-                Console.WriteLine("Type any Number!"); string input = Console.ReadLine();
+            //    Console.WriteLine("Type any Number!"); string input = Console.ReadLine();
 
-                ouput.Append(WordConverter.GetnumberConverter(input));
+            //    ouput.Append(WordConverter.GetnumberConverter(input));
 
-                Console.WriteLine("------------------------!"); Console.WriteLine($"Generated output is \" {ouput} \"");
-                Console.WriteLine("------------------------!");
+            //    Console.WriteLine("------------------------!"); Console.WriteLine($"Generated output is \" {ouput} \"");
+            //    Console.WriteLine("------------------------!");
 
-                Console.WriteLine("Please type y to continue or n to quit");
-                exit = Console.ReadLine();
-            } while (exit != null && exit.ToLower().Equals("y"));
+            //    Console.WriteLine("Please type y to continue or n to quit");
+            //    exit = Console.ReadLine();
+            //} while (exit != null && exit.ToLower().Equals("y"));
 
             #endregion Number to Word
 
@@ -114,6 +114,19 @@ namespace EntryApplicaction
             //Console.WriteLine($"The Perimeter of the Shape is {shape.GetPerimeter()}");
 
             #endregion Shapes
+
+
+            Console.WriteLine("Using doubles:");
+            double a = 0.1;
+            double b = 0.2;
+            if (a + b == 0.3)
+            {
+                Console.WriteLine($"{a} + {b} equals 0.3");
+            }
+            else
+            {
+                Console.WriteLine($"{a} + {b} does NOT equal 0.3");
+            }
         }
     }
 }
